@@ -28,6 +28,7 @@ new class extends Component {
             <option value="Happy">Happy</option>
             <option value="Angry">Angry</option>
         </select>
+        <button wire:click="simpan">SIMPAAAAAAAAAAN</button>
     </form>
 
     <hr color="blue" />
