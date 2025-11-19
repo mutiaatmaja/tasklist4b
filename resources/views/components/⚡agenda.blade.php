@@ -8,7 +8,7 @@ new class extends Component {
     public $nama_kegiatan;
     public $status;
     public $mood;
-
+    public $semuakegiatan;
     public function simpan()
     {
         $simpan = new Kegiatan();
@@ -16,6 +16,10 @@ new class extends Component {
         $simpan->status = $this->status;
         $simpan->mood = $this->mood;
         $simpan->save();
+    }
+    public function mount()
+    {
+        $this->semuakegiatan = Kegiatan::all();
     }
 };
 ?>
@@ -31,6 +35,7 @@ new class extends Component {
         <input type="text" wire:model="nama_kegiatan">
         <label>Status</label>
         <select wire:model="status">
+            <option value="">Silahkan Pilih</option>
             <option value="Baru">Baru</option>
             <option value="Pending">Pending</option>
             <option value="Ngambang">Ngambang</option>
@@ -39,6 +44,7 @@ new class extends Component {
         </select>
         <label>Mood</label>
         <select wire:model="mood">
+            <option value="">Silahkan Pilih</option>
             <option value="Happy">Happy</option>
             <option value="Angry">Angry</option>
         </select>
@@ -48,5 +54,6 @@ new class extends Component {
 
     <hr color="blue" />
     ini untuk tampilan table kegiatan anda
+
     <hr color="black" />
 </div>
