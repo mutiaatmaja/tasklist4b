@@ -1,15 +1,29 @@
 <?php
 
 use Livewire\Component;
+use App\Models\Kegiatan;
 
 new class extends Component {
     //
+    public $nama_kegiatan;
+    public $status;
+    public $mood;
+
+    public function simpan()
+    {
+        $simpan = new Kegiatan();
+        $simpan->nama_kegiatan = $this->nama_kegiatan;
+        $simpan->status = $this->status;
+        $simpan->mood = $this->mood;
+        $simpan->save();
+    }
 };
 ?>
 
 <div>
     <h3>
         Hallo !!!, Silahkan Catat Kegiatan Anda
+
     </h3>
     <hr color="red" />
     <form>
@@ -28,6 +42,7 @@ new class extends Component {
             <option value="Happy">Happy</option>
             <option value="Angry">Angry</option>
         </select>
+
         <button wire:click="simpan">SIMPAAAAAAAAAAN</button>
     </form>
 
